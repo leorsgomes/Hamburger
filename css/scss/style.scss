@@ -1,0 +1,51 @@
+@import 'reset';
+
+.container{
+  max-width: 960px;
+  position: relative;
+  margin: 0 auto;  
+}
+
+// .container::after, .container::before {
+//   content: '';
+//   display: table;
+//   clear: both; 
+// }
+
+.nav-menu{
+  background-color: #ccc;  
+  &_hamburger{
+    border: 2px solid black;
+    width: 45px;
+    height: 45px;
+    position: relative;
+    padding: 2px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    align-items: center; 
+    flex-wrap: nowrap;
+
+    &_line1, &_line2, &_line3{
+      border-radius: 5px;
+      width: 80%;
+      height: calc((100% / 3) - 5px);
+      display: inline-block;
+      background-color: black;
+    }
+  }
+
+  &_menu{
+    border: 2px solid red;
+
+    ul{
+
+      li{
+
+        a{
+        }
+      }
+    }
+      
+  }
+}
