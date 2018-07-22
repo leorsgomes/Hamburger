@@ -40,19 +40,26 @@ h1, h2, h3, h4, h5, h6, p, a, ul {
   margin: 0 auto;
 }
 
+.container::after, .container::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .nav-menu {
   background-color: #ccc;
+  padding: 10px 0;
 }
 .nav-menu_hamburger {
+  align-items: center;
   border: 2px solid black;
+  display: flex;
   width: 45px;
   height: 45px;
   position: relative;
   padding: 2px 0;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: nowrap;
 }
 .nav-menu_hamburger_line1, .nav-menu_hamburger_line2, .nav-menu_hamburger_line3 {
@@ -63,7 +70,30 @@ h1, h2, h3, h4, h5, h6, p, a, ul {
   background-color: black;
 }
 .nav-menu_menu {
-  border: 2px solid red;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #ccc;
+  top: 55px;
+  transition: 0.3s;
+  transform: translate3d(-50px, 0px, 0px);
+}
+.nav-menu_menu.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0px, 0px, 0px);
+}
+.nav-menu_menu ul {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.nav-menu_menu ul li:nth-child(-n+3) {
+  border-bottom: 1px solid currentColor;
+}
+.nav-menu_menu ul li a {
+  color: #fff;
+  padding: 5px 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

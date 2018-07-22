@@ -1,29 +1,35 @@
 @import 'reset';
 
+$menuListColor: #ccc;
+$menuBarColor: #ccc;
+$menuLinkColor: #fff;
+
 .container{
   max-width: 960px;
   position: relative;
   margin: 0 auto;  
 }
 
-// .container::after, .container::before {
-//   content: '';
-//   display: table;
-//   clear: both; 
-// }
+.container::after, .container::before {
+  content: '';
+  display: table;
+  clear: both; 
+}
 
 .nav-menu{
-  background-color: #ccc;  
+  background-color:$menuBarColor;
+  padding: 10px 0;
+
   &_hamburger{
+    align-items: center;
     border: 2px solid black;
+    display: flex;
     width: 45px;
     height: 45px;
     position: relative;
-    padding: 2px 0;
-    display: flex;
+    padding: 2px 0;    
     flex-direction: column;
-    justify-content: space-between;  
-    align-items: center; 
+    justify-content: space-between;     
     flex-wrap: nowrap;
 
     &_line1, &_line2, &_line3{
@@ -36,13 +42,35 @@
   }
 
   &_menu{
-    border: 2px solid red;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    background-color: $menuListColor;
+    top: 55px;
+
+    transition: .3s;
+    transform: translate3d(-50px, 0px, 0px);
+    
+    &.active{
+      visibility: visible;
+      opacity: 1;
+      transform: translate3d(0px, 0px, 0px);
+    }
 
     ul{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
 
       li{
 
+        &:nth-child(-n+3){
+          border-bottom: 1px solid currentColor;
+        }
+
         a{
+          color: $menuLinkColor;
+          padding: 5px 10px;
         }
       }
     }
